@@ -1,15 +1,35 @@
-/* تنسيقات CSS الأساسية */
-body {
-    font-family: 'Arial', 'Tahoma', sans-serif;
+/* ==========================
+   RESET & BASE VARIABLES
+========================== */
+:root {
+    --green-dark: #004d40;
+    --green-emerald: #00695c;
+    --orange: #ffab00;
+    --gray-bg: #f8f9fa;
+    --gray-dark: #263238;
+    --text-main: #343a40;
+}
+
+/* Reset بسيط لتوحيد المظهر بين المتصفحات */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    direction: rtl;
+}
+
+body {
+    font-family: 'Arial', 'Tahoma', sans-serif;
+    background-color: var(--gray-bg);
+    color: var(--text-main);
     line-height: 1.6;
-    background-color: #f8f9fa; /* خلفية فاتحة */
-    color: #343a40;
-    direction: rtl; /* لتبدأ الكتابة من اليمين */
     text-align: right;
 }
 
+/* حاوية عامة للمحتوى */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -17,191 +37,23 @@ body {
     padding: 20px 0;
 }
 
-/* تنسيق العناوين والأقسام */
+/* ==========================
+   HEADINGS
+========================== */
+h1, h2, h3, h4 {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
 h3 {
-    color: #004d40; /* لون أخضر داكن */
-    border-bottom: 2px solid #ffab00; /* خط برتقالي تحت العنوان */
+    color: var(--green-dark);
+    border-bottom: 2px solid var(--orange);
     padding-bottom: 5px;
     display: inline-block;
     margin-bottom: 30px;
 }
 
-/* 1. رأس الصفحة (Header) */
-header {
-    background-color: #004d40; 
-    color: white;
-    padding: 10px 0;
-    border-bottom: 4px solid #ffab00; 
-    overflow: hidden; 
-}
-
-header h1 {
-    margin: 0;
-    float: right;
-}
-
-header nav {
-    float: left;
-}
-
-header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-header nav ul li {
-    display: inline;
-    margin-left: 20px;
-}
-
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-header nav ul li a:hover {
-    color: #ffab00;
-}
-
-/* 2. قسم الترحيب (Hero Section) */
-.hero-section {
-    background: #00695c; /* لون أخضر زمردي */
-    color: white;
-    padding: 120px 0;
-    text-align: center;
-}
-
-.hero-section h2 {
-    font-size: 3.5em;
-    margin-bottom: 15px;
-}
-
-.btn {
-    display: inline-block;
-    background-color: #ffab00;
-    color: #004d40;
-    padding: 12px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 25px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #ffd600;
-}
-
-/* 3. تنسيق الأقسام الأخرى */
-section {
-    padding: 60px 0;
-}
-
-.about-us, .contact-section {
-    background-color: white;
-}
-
-.services {
-    background-color: #e0f2f1; /* خلفية فاتحة للخدمات */
-}
-
-.service-grid {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.service-item {
-    background: white;
-    border: 1px solid #b2dfdb;
-    padding: 25px;
-    margin: 10px 0;
-    width: 30%;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    border-radius: 8px;
-    text-align: center;
-}
-
-.service-item h4 {
-    color: #00695c;
-}
-
-/* 4. نموذج الاتصال (Contact Form) */
-.contact-section form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #f4f4f4;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.contact-section label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #004d40;
-}
-
-.contact-section input[type="text"],
-.contact-section input[type="email"],
-.contact-section input[type="tel"],
-.contact-section textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; 
-}
-
-.contact-section textarea {
-    resize: vertical;
-}
-
-/* 5. تذييل الصفحة (Footer) */
-footer {
-    background-color: #263238; /* لون رمادي داكن */
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 0.95em;
-}
-
-.footer-link {
-    color: #ffab00;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.footer-link:hover {
-    text-decoration: underline;
-}
-
-/* استجابة الشاشات (للهواتف والأجهزة اللوحية) */
-@media (max-width: 768px) {
-    header h1, header nav {
-        float: none;
-        text-align: center;
-    }
-    header nav ul {
-        text-align: center;
-        margin-top: 10px;
-    }
-    header nav ul li {
-        display: block;
-        margin: 5px 0;
-    }
-    .service-item {
-        width: 90%; 
-    }
-    .hero-section h2 {
-        font-size: 2.5em;
-    }
-}
+/* ==========================
+   HEADER
+========================== */
+/
